@@ -1,0 +1,795 @@
+@charset "utf-8";
+
+/*ブラウザスタイルの初期化
+reset.cssをリンクする場合は不要*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+/*回り込み解除*/
+.clearfix:after{
+    display: block;
+    clear: both;
+    content:"";
+}
+
+/*style start*/
+
+/*cssプロパティを記述する順番
+
+1.視覚整形モデル
+→要素を表示するか、要素をどこに表示するか
+display
+list-style
+position
+float
+clear
+
+2.ボックスモデル
+→ボックスモデルの大きさや間隔
+width
+height
+margin
+padding
+border
+
+3.背景
+→背景色や背景イメージなど
+background
+
+4.フォント、テキスト、色
+→文字に関すること
+color
+font
+text-decoration
+text-align
+
+5.その他
+→１〜４に該当しないものなど
+vertical-align
+white-space
+content
+
+*/
+
+/*body{
+    background-color: white;/*ブラウザ背景色*/
+/*}
+*/
+
+.wrapper{
+    width:100%;/*wrapperつまり、サイトの横幅*/
+    margin: 0 auto;/*ブラウザ内で中央表示*/
+    border-radius: 20px;/*角を丸くする*/
+    background-color: white;/*背景色*/ 
+    
+}
+
+header{
+    width:100%;/*wrapperつまり、サイトの横幅*/
+    margin: 0 auto;/*ブラウザ内で中央表示*/
+    position:fixed;/*headerをスクロールで動かないように定位置で固定する*/
+    top: 0;/*positionプロパティとセットで使用*/
+    /*heightはclearfixで自動計算*/
+    background-color: rgba(253, 253, 251, 0.747);/*背景色＋半透明*/
+    /*box-shadow: 0 0 8px gray;/*影をつける*/
+    color: gray;/*文字色*/
+    z-index: 9999;
+}
+
+.header-left{
+    float: left;/*フロートして左寄せ*/
+    width: 150px;/*ヘッダーレフトエリアの横幅*/
+    height: 45px;/*ヘッダーレフトエリアの高さ*/
+    margin-top: 10px;/*外側余白→上*/
+    margin-left: 30px;/*外側余白→左*/
+    margin-bottom: 15px;/*外側余白→下*/
+    /*↑↑↑これをショートハンドで書くと↓↓↓*/
+    /*margin: 13px 0 13px 30px;*/
+    border-radius: 20px;/*角を丸くする*/
+    text-align: center;/*ヘッダーロゴを親要素の中で中央表示*/
+}
+
+nav{
+    float: right;/*フロートして右寄せ*/
+    width: 900px;/*ナビゲーション総幅*/
+    margin-top: 13px;/*外側余白→上*/
+    margin-right: 30px;/*外側余白→右*/
+    margin-bottom: 13px;/*外側余白→下*/
+    /*↑↑↑これをショートハンドで書くと↓↓↓*/
+    /*margin: 13px 30px 13px 0;*/
+    border-radius: 20px;/*角を丸くする*/
+}
+
+ul{
+    list-style: none;/*リストのブレットを非表示、reset.cssをリンクした場合は、記述不要の場合もある。*/
+}
+
+ul li{
+    float: left;/*フロートして左寄せ*/
+    width: 180px;/*ボタン１つあたりの横幅*/
+    border-radius: 20px;/*角を丸くする*/
+    text-align: center;/*中の文字を中央ぞろえにする*/
+}
+
+ul li a{
+    display: block;/*リンクのa要素の表示形式をインラインからブロックに変更することによりリンクのヒット領域を親要素のliと同じに広げている*/
+    padding: 10px 0;/*上下の内側に余白を10px*/
+    color: rgb(41, 41, 40);/*文字色*/
+    text-decoration: none;/*リンクの下線を消す*/
+}
+
+ul li a:hover{/*マウスが乗った時の変化*/
+    background-color: rgb(7, 7, 7);/*背景色*/
+    color: white;/*文字色*/
+}
+
+/*.menu-trigger,
+.menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+}
+.menu-trigger {
+    position: relative;
+    width: 30px;
+    height: 35px;
+    margin-top: 20px;
+    background: none;
+    border: none;
+    appearance: none;
+    cursor: pointer;
+}
+.menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(19, 18, 18);
+    border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+    top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+    top: 15px;
+}
+.menu-trigger span:nth-of-type(3) {
+    bottom: 0;
+}
+*/
+
+main{
+    width: 960px;/*メインエリアの横幅*/
+    margin: 0 auto;/*ブラウザ内で中央表示*/
+    margin-bottom: 10px;/*外側余白→下*/
+    padding-top: 90px;/*内側余白→上*/
+    background-color: rgba(253, 251, 251, 0.986);/*背景色*/
+    
+}
+
+.main-visual{
+    text-align: center;/*画像を親要素の中で中央寄せ*/
+}
+.main-visual{
+    border: 1px solid #ddd;
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: 100;
+  }
+.main-visual img{
+    width: 100%;
+    transform: scale(1.1);
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition-duration: 0.5s;
+  }
+.main-visual img:hover{
+    filter: grayscale(0);
+    transition-duration: 0.5s;
+  }
+
+.main-visual-r{
+    box-shadow: 0 0 8px gray;/*影をつける*/
+}
+
+
+article{
+    float: left;/*フロートして左寄せ*/
+    width: 650px;/*アーティクルエリアの横幅*/
+    margin-top: 30px;/*外側余白→上*/
+    
+    /*↑↑↑これをショートハンドで書くと↓↓↓*/
+    /*margin: 30px 0 0 0;*/
+    background-color: rgba(155, 151, 127, 0.726);/*背景色*/
+    box-shadow: 0 0 8px gray;/*影をつける*/
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2{
+    margin: 10px;
+    color: rgb(253, 38, 0);
+    font-style: italic;
+    font-size: xx-large;
+    text-align: center;
+}
+
+h3{
+    padding-top: 70px;
+    padding-bottom: 45px;
+    color: black;
+    text-align: center;
+}
+
+.rsn{
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgb(253, 40, 2);
+    font-style: italic;
+    text-align: center;
+}
+
+.box1{
+    width: 530px;/*box1の横幅*/
+    height: 500px;/*box1の高さ*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 20px;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px #ccc;/*内側に影をつける*/
+}
+
+.box2{
+    width: 530px;/*box2の横幅*/
+    height: 200px;/*box2の高さ*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 20px;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px #ccc;/*内側に影をつける*/
+}
+
+.box3{
+    width: 530px;/*box3の横幅*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 20px;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px #ccc;/*内側に影をつける*/
+}
+
+aside{
+    float: right;/*フロートして右寄せ*/
+    width: 280px;/*アサイドエリアの横幅*/
+    margin-top: 30px;/*外側余白→上*/
+    /*↑↑↑これをショートハンドで書くと↓↓↓*/
+    /*margin: 30px 30px 0 0;*/
+    background-color: rgba(155, 151, 127, 0.726);/*背景色*/
+    box-shadow: 0 0 8px rgb(148, 145, 145);/*影をつける*/
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.box4{
+    width: 200px;/*box4の横幅*/
+    height: 150px;/*box4の高さ*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 60px 0;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px rgba(204, 204, 204, 0.685);/*内側に影をつける*/
+}
+
+.box5{
+    width: 200px;/*box5の横幅*/
+    height: 130px;/*box5の高さ*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 60px 0;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px #ccc;/*内側に影をつける*/
+}
+
+.box6{
+    width: 200px;/*box6の横幅*/
+    height: 100px;/*box6の高さ*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 60px 0;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px #ccc;/*内側に影をつける*/
+}
+
+.box7{
+    width: 200px;/*box7の横幅*/
+    height: 300px;/*box7の高さ*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 60px 0;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px #ccc;/*内側に影をつける*/
+}
+
+.box8{
+    width: 200px;/*box8の横幅*/
+    height: 150px;/*box8の高さ*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 10px;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px #ccc;/*内側に影をつける*/
+}
+
+a.itunes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 50px;
+    margin-left: 30px;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
+    z-index: 200;
+  }
+a.itunes span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 50px;
+    margin-top: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+    border-radius: 10px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    transition-duration: 0.2s;
+  }
+a.itunes:hover span {
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+  }
+
+a.spotify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 30px;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
+    z-index: 200;
+  }
+a.spotify span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 50px;
+    margin-top: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+    border-radius: 10px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    transition-duration: 0.2s;
+  }
+a.spotify:hover span {
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+  }
+
+
+a.online {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 30px;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
+    z-index: 200;
+  }
+a.online span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 50px;
+    margin-top: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+    border-radius: 10px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    transition-duration: 0.2s;
+  }
+a.online:hover span {
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+  }
+
+
+.timeline{
+    margin-top: 20px;
+    text-align: center;
+}
+footer{
+    width: 960px;/*フッターの横幅*/
+    margin: 0 auto;/*ブラウザ内で中央表示*/
+    padding-top: 20px; /*内側余白→上*/
+    padding-bottom: 30px;/*内側余白→下*/
+    background-color: rgba(250, 247, 247, 0.747);/*背景色*/
+    
+    color: gray;/*文字色*/
+}
+
+.mv{
+    display: block;/*リンクのa要素の表示形式をインラインからブロックに変更することによりリンクのヒット領域を親要素のliと同じに広げている*/
+    margin-bottom: 20px;
+    padding: 10px 10px;/*上下の内側に余白を10px*/
+    color: tomato;/*文字色*/
+    text-decoration: none;/*リンクの下線を消す*/
+}
+
+.mv:hover{
+    color: ivory;
+    background-color: rgb(252, 214, 0);
+}
+
+.box5 p a:hover{
+    background-color: rgba(248, 246, 246, 0.63);/*背景色*/
+}
+
+.site {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    background: repeating-linear-gradient(45deg, #ffffff, #ffffff 3px, #e7e7e7 3px, #e7e7e7 30px);
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    position: relative;
+  }
+
+.site span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    transition-duration: 0.2s;
+  }
+  .site:hover span {
+    left: -1px;
+    top: -1px;
+  }
+
+
+.icon{
+    width: 960px;
+    height: 50px;
+    margin-top: 100px;
+    text-align: center;
+    
+}
+
+.icon a{
+    text-align: center;
+}
+.icon a:hover{
+    background: repeating-linear-gradient(45deg, #ffffff, #ffffff 3px, #e7e7e7 3px, #e7e7e7 30px);
+    color: #333;
+}
+.copyright{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.mbphoto{
+    width: 220px;
+    height: 350px;
+}
+
+.member table{
+    width: 960px;/*アーティクルエリアの横幅*/
+    margin: 0 auto;
+    background-color: brown;
+    box-shadow: 0 0 8px gray;/*影をつける*/
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+.disco{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.select{
+    float: left;
+    width: 670px;
+    margin: 0 80px;
+    padding-left: 130px;
+    background-color: rgb(212, 228, 228);
+    text-align: center;
+}
+
+.box9{
+    width: 800px;
+    margin: 0 auto;/*親要素内で中央表示*/
+    box-shadow: inset 0 0 8px #ccc;/*内側に影をつける*/
+}
+
+.box10{
+    width: 800px;
+    margin: 0 auto;/*親要素内で中央表示*/
+    box-shadow: inset 0 0 8px #ccc;/*内側に影をつける*/
+}
+
+.box11{
+    width: 800px;
+    margin: 0 auto;/*親要素内で中央表示*/
+    box-shadow: inset 0 0 8px #ccc;/*内側に影をつける*/
+}
+
+.cdtable{
+    width: 750px;
+    margin: 0 auto;
+    padding: 30px 30px ;
+}
+
+.cdtable tr td{
+    padding-left: 50px;
+    background-color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: none;
+}
+
+h4{
+    text-align: center;
+}
+ 
+ul li span img{
+    width: 150px;
+    height: 150px;
+}
+
+
+    
+li.next {
+    width: 600px;
+    margin: 0 auto;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.seg{
+    float: left;
+    width: 350px;
+    margin-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+.seg1{
+    float: right;
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-color: cornflowerblue;
+}
+
+
+.box12{
+    width: 800px;
+    margin: 0 auto;/*親要素内で中央表示*/
+    box-shadow: inset 0 0 8px #ccc;/*内側に影をつける*/
+}
+
+
+.table {
+	list-style: none;
+	display: table;
+    width: 500px;
+    height: 400px;
+	margin: 0 auto;
+}
+
+
+.next {
+	display: table-cell;
+	text-align: center;
+}
+
+.select1{
+    float: left;
+    width: 770px;
+    margin: 0 80px 30px 80px;
+    padding-left: 30px;
+    background-color: rgb(212, 228, 228);
+    text-align: center;
+}
+
+.select1 li{
+    width: 170px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-size:smaller;
+}
+
+.fanclublogo{
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.fc{
+    width: 800px;/*アーティクルエリアの横幅*/
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(155, 151, 127, 0.726);/*背景色*/
+    box-shadow: 0 0 8px gray;/*影をつける*/
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.box13{
+    width: 700px;/*box4の横幅*/
+    height: 150px;/*box4の高さ*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 30px 30px;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px rgba(204, 204, 204, 0.685);/*内側に影をつける*/
+}
+
+.box14{
+    width: 700px;/*box4の横幅*/
+    height: 750px;/*box4の高さ*/
+    margin: 70px auto;/*親要素内で中央表示*/
+    padding: 0 30px;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px rgba(204, 204, 204, 0.685);/*内側に影をつける*/
+    text-align: center;
+}
+
+.fcol{
+    list-style: none;
+}
+
+.box15{
+    width: 700px;/*box4の横幅*/
+    height: 550px;/*box4の高さ*/
+    margin: 70px auto;/*親要素内で中央表示*/
+    padding: 30px 30px;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px rgba(204, 204, 204, 0.685);/*内側に影をつける*/
+    text-align: center;
+}
+
+.box16{
+    width: 700px;/*box4の横幅*/
+    height: 600px;/*box4の高さ*/
+    margin: 30px auto;/*親要素内で中央表示*/
+    padding: 30px 30px;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px rgba(204, 204, 204, 0.685);/*内側に影をつける*/
+}
+
+.fctable{
+    width: 680px;
+    border: 3px black solid;
+    background-color: rgba(238, 247, 188, 0.973);
+}
+
+.fctable tr th, td{
+    border: 1px black solid;
+    background-color: blanchedalmond;
+}
+
+.box17{
+    width: 700px;/*box4の横幅*/
+    height: 350px;/*box4の高さ*/
+    margin: 70px auto;/*親要素内で中央表示*/
+    padding: 30px 30px;
+    background-color: rgb(245, 247, 241);/*背景色*/
+    box-shadow: inset 5px 5px 5px rgba(204, 204, 204, 0.685);/*内側に影をつける*/
+    text-align: center;
+}
+
+.info li{
+    float: none;
+    width: 700px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.fcsub{
+    display: block;/*リンクのa要素の表示形式をインラインからブロックに変更することによりリンクのヒット領域を親要素のliと同じに広げている*/
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px 0;/*上下の内側に余白を10px*/
+    color: rgb(41, 41, 40);/*文字色*/
+    text-decoration: none;/*リンクの下線を消す*/
+}
+
+.fcsub:hover{/*マウスが乗った時の変化*/
+    background-color: rgb(7, 7, 7);/*背景色*/
+    color: white;/*文字色*/
+}
+
+.select2{
+    float: left;
+    width: 770px;
+    margin: 0 80px 30px 80px;
+    padding-left: 30px;
+    background-color: rgb(212, 228, 228);
+    text-align: center;
+}
+
+.select2 li{
+    width: 180px;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-align: center;
+}
+
+.gift2, .digital{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    color: black;
+    text-align: center;
+}
+
+.font1{
+    padding-top: 70px;
+    padding-bottom: 30px;
+    color: rgb(253, 38, 0);
+    font-style: italic;
+    font-size: xx-large;
+    text-align: center;
+}
